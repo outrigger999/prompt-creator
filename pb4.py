@@ -135,6 +135,12 @@ class ElementCreator:
                 df = pd.concat([df, new_row], ignore_index=True)
                 DataManager.save_data(df, 'prompt_elements.csv')
                 st.success("Element added successfully!")
+                
+                # Clear input fields
+                st.session_state.new_title = ""
+                st.session_state.new_content = ""
+                st.session_state.new_type = ELEMENT_TYPES[0]
+                st.experimental_rerun()
 
 class ElementEditor:
     @staticmethod
